@@ -95,13 +95,16 @@ body {
 }
 
 /* Contenedor de la escena */
+/* Asegúrate de que el contenedor de la escena tenga un tamaño completo */
 #scene-container {
     width: 100%;
     height: 100vh;
-    background-image: url('https://github.com/Valug18/Intervention/blob/5ec6f234af8cca52bcd60d014e94547c648ffecb/fondo.jpg');
+    background-image: url('fondo.jpg'); /* O 'imagenes/fondo.jpg' si está en una subcarpeta */
     background-size: cover;
     background-position: center;
+    display: none; /* Asegurémonos de que esté oculto hasta que inicie el juego */
 }
+
 
 /* Responsividad */
 @media (max-width: 768px) {
