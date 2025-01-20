@@ -98,7 +98,7 @@ body {
 #scene-container {
     width: 100%;
     height: 100vh;
-    background-image: url('fondo.jpg');
+    background-image: url('https://github.com/Valug18/Intervention/blob/5ec6f234af8cca52bcd60d014e94547c648ffecb/fondo.jpg');
     background-size: cover;
     background-position: center;
 }
