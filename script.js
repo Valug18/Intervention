@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const options = document.getElementById('options');
     const startButton = document.getElementById('start-button');
     const progressBar = document.getElementById('progress');
+    const sceneContainer = document.getElementById('scene-container'); // Referencia al contenedor de fondo
     let progressPercentage = 0;
     let state = {};
 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function startGame() {
         startButton.style.display = 'none';
         game.style.display = 'block';
+        sceneContainer.style.display = 'block'; // Asegura que el fondo se muestre
         state = {};
         progressPercentage = 0;
         updateProgress();
