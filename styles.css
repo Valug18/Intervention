@@ -1,0 +1,110 @@
+/* Configuración general */
+body {
+    font-family: 'Courier Prime', monospace;
+    background-color: #1c1c1c;
+    color: #e6e6e6;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Título */
+#title {
+    color: #d32f2f;
+    font-size: 48px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: flicker 2s infinite alternate;
+}
+
+/* Animación de parpadeo para el título */
+@keyframes flicker {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(211, 47, 47, 0.7), 0 0 20px rgba(211, 47, 47, 0.6), 0 0 30px rgba(211, 47, 47, 0.5);
+    }
+    50% {
+        text-shadow: none;
+    }
+}
+
+/* Barra de progreso */
+#progress-bar {
+    width: 80%;
+    background-color: #333;
+    margin: 10px auto;
+    height: 10px;
+    border-radius: 5px;
+    border: 2px solid #444;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background-color: #76c7c0;
+    transition: width 0.5s ease;
+}
+
+/* Contenedor del juego */
+#game {
+    display: none;
+    background-color: #333;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #444;
+}
+
+/* Botones de opciones */
+.option-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.option-button:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón de inicio */
+#start-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#start-button:hover {
+    background-color: #0d47a1;
+    transform: scale(1.1);
+}
+
+/* Contenedor de la escena */
+#scene-container {
+    width: 100%;
+    height: 100vh;
+    background-image: url('fondo.png');
+    background-size: cover;
+    background-position: center;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
