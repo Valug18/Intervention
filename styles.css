@@ -67,7 +67,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .option-button:hover {
@@ -91,7 +91,7 @@ body {
 
 #start-button:hover {
     background-color: #0d47a1;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* Contenedor de la escena */
@@ -103,8 +103,19 @@ body {
     background-position: center;
 }
 
-h1 {
-    color: white;
-    text-align: center;
-    margin-top: 20px;
+/* Responsividad */
+@media (max-width: 768px) {
+    #title {
+        font-size: 36px;
+    }
+
+    .option-button {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    #start-button {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
 }
