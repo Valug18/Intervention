@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let state = {};
 
     const clickSound = new Audio('click-sound.mp3'); // Efecto de sonido al hacer clic en las opciones
+    clickSound.load(); // Pre-cargar sonido
 
     startButton.addEventListener('click', startGame);
 
@@ -24,9 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const textNode = textNodes.find(node => node.id === textNodeIndex);
         story.innerHTML = ''; 
         typeWriter(textNode.text, story, 50); // Aparece el texto lentamente
-        while (options.firstChild) {
-            options.removeChild(options.firstChild);
-        }
+        options.innerHTML = ''; // Limpia las opciones antes de agregar nuevas
+
         textNode.options.forEach(option => {
             const button = document.createElement('button');
             button.innerText = option.text;
@@ -39,9 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function selectOption(option) {
         clickSound.play(); // Efecto de sonido al seleccionar opción
         const nextTextNodeId = option.nextText;
-        if (nextTextNodeId <= 0) {
-            return startGame();
-        }
+        if (nextTextNodeId === -1) return startGame();
         state = Object.assign(state, option.setState);
         updateProgress();
         showTextNode(nextTextNodeId);
