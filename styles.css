@@ -24,7 +24,7 @@ body {
         text-shadow: 0 0 10px rgba(211, 47, 47, 0.7), 0 0 20px rgba(211, 47, 47, 0.6), 0 0 30px rgba(211, 47, 47, 0.5);
     }
     50% {
-        text-shadow: none;
+        text-shadow: 0 0 5px rgba(211, 47, 47, 0.4), 0 0 10px rgba(211, 47, 47, 0.3);
     }
 }
 
@@ -48,12 +48,18 @@ body {
 /* Contenedor del juego */
 #game {
     display: none;
+    opacity: 0;
     background-color: #333;
     width: 80%;
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
     border: 2px solid #444;
+    transition: opacity 0.5s ease;
+}
+
+#game.show {
+    opacity: 1;
 }
 
 /* Botones de opciones */
@@ -95,16 +101,14 @@ body {
 }
 
 /* Contenedor de la escena */
-/* Asegúrate de que el contenedor de la escena tenga un tamaño completo */
 #scene-container {
     width: 100%;
     height: 100vh;
-    background-image: url('fondo.jpg'); /* O 'imagenes/fondo.jpg' si está en una subcarpeta */
+    background-image: url('fondo.jpg');
     background-size: cover;
     background-position: center;
-    display: none; /* Asegurémonos de que esté oculto hasta que inicie el juego */
+    display: none;
 }
-
 
 /* Responsividad */
 @media (max-width: 768px) {
