@@ -4,30 +4,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const options = document.getElementById('options');
     const startButton = document.getElementById('start-button');
     const progressBar = document.getElementById('progress');
-    const sceneContainer = document.getElementById('scene-container'); // Referencia al contenedor de fondo
+    const sceneContainer = document.getElementById('scene-container');
     let progressPercentage = 0;
     let state = {};
+    let typing = false;
+    let typingTimeout;
 
-    const clickSound = new Audio('click-sound.mp3'); // Efecto de sonido al hacer clic en las opciones
-    clickSound.load(); // Pre-cargar sonido
+    const clickSound = new Audio('click-sound.mp3');
+    clickSound.load();
 
     startButton.addEventListener('click', startGame);
 
     function startGame() {
         startButton.style.display = 'none';
         game.style.display = 'block';
-        sceneContainer.style.display = 'block'; // Asegura que el fondo se muestre
+        sceneContainer.style.display = 'block';
+        setTimeout(() => game.classList.add('show'), 10); // Añade clase para la transición
         state = {};
         progressPercentage = 0;
-        updateProgress();
+        updateProgress(0);
         showTextNode(1);
     }
 
     function showTextNode(textNodeIndex) {
         const textNode = textNodes.find(node => node.id === textNodeIndex);
-        story.innerHTML = ''; 
-        typeWriter(textNode.text, story, 50); // Aparece el texto lentamente
-        options.innerHTML = ''; // Limpia las opciones antes de agregar nuevas
+        story.innerHTML = '';
+        typeWriter(textNode.text, story, 50);
+        options.innerHTML = '';
 
         textNode.options.forEach(option => {
             const button = document.createElement('button');
@@ -39,30 +42,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function selectOption(option) {
-        clickSound.play(); // Efecto de sonido al seleccionar opción
+        clickSound.play();
         const nextTextNodeId = option.nextText;
         if (nextTextNodeId === -1) return startGame();
         state = Object.assign(state, option.setState);
-        updateProgress();
+        updateProgress(20); // Aumenta el progreso en un 20%
         showTextNode(nextTextNodeId);
     }
 
-    function updateProgress() {
-        progressPercentage += 20; // Incrementa el progreso en un 20%
+    function updateProgress(percentage) {
+        progressPercentage += percentage;
         progressBar.style.width = progressPercentage + '%';
     }
 
     function typeWriter(text, element, speed) {
         let i = 0;
+        typing = true;
+        element.innerHTML = '';
+
         function type() {
-            if (i < text.length) {
+            if (i < text.length && typing) {
                 element.innerHTML += text.charAt(i);
                 i++;
-                setTimeout(type, speed);
+                typingTimeout = setTimeout(type, speed);
+            } else {
+                typing = false;
             }
         }
         type();
     }
+
+    function stopTyping() {
+        typing = false;
+        clearTimeout(typingTimeout);
+    }
+
+    options.addEventListener('click', stopTyping);
 
     const textNodes = [
         {
