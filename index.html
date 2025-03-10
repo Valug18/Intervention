@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Intervention</title>
+    <title>Juego de Investigación 2D</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="game-container">
-        <h1 id="title">Intervention</h1>
+    <h1 id="title">Investigación Criminal</h1>
+    <button id="start-button">Comenzar Investigación</button>
+    <div id="game">
+        <!-- Canvas se agrega dinámicamente por JS -->
+        <div id="story"></div>
+        <div id="options"></div>
         <div id="progress-bar">
             <div id="progress"></div>
         </div>
-        <div id="game">
-            <p id="story"></p>
-            <div id="options"></div>
-        </div>
-        <button id="start-button" aria-label="Iniciar Juego">Iniciar Juego</button>
     </div>
-    <div id="scene-container"></div>
-
-    <script src="script.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
