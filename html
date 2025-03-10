@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego de Investigación 2D</title>
+    <style>
+        #game {
+            display: none;
+            position: relative;
+            background: #333;
+            padding: 20px;
+        }
+        #story {
+            color: white;
+            margin: 10px 0;
+        }
+        .option-button {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+            background: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .option-button:hover {
+            background: #777;
+        }
+        #progress {
+            height: 10px;
+            width: 0%;
+            background: #4CAF50;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <button id="start-button">Comenzar Investigación</button>
+    <div id="game">
+        <div id="story"></div>
+        <div id="options"></div>
+        <div id="progress"></div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
