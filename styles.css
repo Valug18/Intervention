@@ -18,7 +18,6 @@ body {
     animation: flicker 2s infinite alternate;
 }
 
-/* Animación de parpadeo para el título */
 @keyframes flicker {
     0%, 100% {
         text-shadow: 0 0 10px rgba(211, 47, 47, 0.7), 0 0 20px rgba(211, 47, 47, 0.6), 0 0 30px rgba(211, 47, 47, 0.5);
@@ -28,29 +27,13 @@ body {
     }
 }
 
-/* Barra de progreso */
-#progress-bar {
-    width: 80%;
-    background-color: #333;
-    margin: 10px auto;
-    height: 10px;
-    border-radius: 5px;
-    border: 2px solid #444;
-}
-
-#progress {
-    width: 0%;
-    height: 100%;
-    background-color: #76c7c0;
-    transition: width 0.5s ease;
-}
-
 /* Contenedor del juego */
 #game {
     display: none;
     opacity: 0;
     background-color: #333;
     width: 80%;
+    max-width: 800px; /* Limita el ancho al tamaño del canvas */
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
@@ -60,6 +43,22 @@ body {
 
 #game.show {
     opacity: 1;
+}
+
+/* Canvas */
+canvas {
+    background-color: #000; /* Fondo del canvas por si no se pinta todo */
+    border: 1px solid #444;
+}
+
+/* Texto de la historia */
+#story {
+    color: #e6e6e6;
+    margin: 10px 0;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
 }
 
 /* Botones de opciones */
@@ -100,20 +99,33 @@ body {
     transform: scale(1.05);
 }
 
-/* Contenedor de la escena */
-#scene-container {
+/* Barra de progreso */
+#progress-bar {
     width: 100%;
-    height: 100vh;
-    background-image: url('fondo.jpg');
-    background-size: cover;
-    background-position: center;
-    display: none;
+    background-color: #333;
+    margin: 10px 0;
+    height: 10px;
+    border-radius: 5px;
+    border: 2px solid #444;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background-color: #76c7c0;
+    transition: width 0.5s ease;
+    border-radius: 3px;
 }
 
 /* Responsividad */
 @media (max-width: 768px) {
     #title {
         font-size: 36px;
+    }
+
+    #game {
+        width: 90%;
+        padding: 10px;
     }
 
     .option-button {
@@ -124,5 +136,10 @@ body {
     #start-button {
         font-size: 18px;
         padding: 12px 24px;
+    }
+
+    canvas {
+        width: 100%;
+        height: auto;
     }
 }
